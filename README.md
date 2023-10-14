@@ -1,4 +1,4 @@
-# Human-Emotion-Detection-AI-Project
+# EmoDetect
 
 ## Objective 
 

@@ -1,5 +1,5 @@
 <div align="center">
-<img src = "https://github.com/jfv492/Human-Emotion-Detection-AI-Project/assets/98986952/a1530386-c616-4b12-b4c4-dceb27ee2f2d">
+<img src = "https://github.com/jfv492/Human-Emotion-Detection-AI-Project/assets/98986952/2eb2c5b0-0d94-4aba-b5cd-b56dd7d2e48b" height=200>
 </div>
 
 ## UN SDG(s)

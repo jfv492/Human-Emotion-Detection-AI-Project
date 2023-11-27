@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+
+    <!-- Your existing form for image upload and prediction -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>Prediction</h2>
+    {% if detected_emotion %}
+        <p>{{ detected_emotion }}</p>
+    {% else %}
+        <p>No emotion detected</p>
+    {% endif %}
+
+    <!-- Recommendations section -->
+    <h2>Recommendations</h2>
+    {% if recommendations %}
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available</p>
+    {% endif %}
+</body>
+</html>

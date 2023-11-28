@@ -8,13 +8,48 @@ app = Flask(__name__)
 
 def get_recommendations(detected_emotion):
     recommendations = {
-        "angry": ["Try deep breathing exercises.", "Consider taking a walk to cool down."],
-        "disgust": ["Listen to calming music.", "Practice mindfulness meditation."],
-        "fear": ["Take slow, deep breaths.", "Try progressive muscle relaxation techniques."],
-        "happy": ["Celebrate with your favorite activity.", "Go for a walk in nature."],
-        "sad": ["Write down your feelings in a journal.", "Listen to uplifting music."],
-        "surprise": ["Take a moment to reflect on the surprise.", "Practice gratitude for the moment."],
-        "neutral": ["Take a few deep breaths to relax.", "Practice mindfulness for a few minutes."]
+        "angry": [
+            "Try deep breathing exercises.",
+            "Consider taking a walk to cool down.",
+            "Write down your thoughts to release frustration.",
+            "Engage in physical exercise to channel anger positively."
+        ],
+        "disgust": [
+            "Listen to calming music.",
+            "Practice mindfulness meditation.",
+            "Engage in a relaxing hobby to shift focus.",
+            "Talk to someone you trust to express your feelings."
+        ],
+        "fear": [
+            "Take slow, deep breaths.",
+            "Try progressive muscle relaxation techniques.",
+            "Create a plan to address the source of fear.",
+            "Challenge negative thoughts and replace them with positive affirmations."
+        ],
+        "happy": [
+            "Celebrate with your favorite activity.",
+            "Go for a walk in nature.",
+            "Express gratitude to someone close.",
+            "Share your happiness by doing a random act of kindness."
+        ],
+        "sad": [
+            "Write down your feelings in a journal.",
+            "Listen to uplifting music.",
+            "Spend time with loved ones for support.",
+            "Engage in a creative activity to express emotions."
+        ],
+        "surprise": [
+            "Take a moment to reflect on the surprise.",
+            "Practice gratitude for the unexpected.",
+            "Capture the surprise with a creative activity.",
+            "Share the surprise with someone to double the joy."
+        ],
+        "neutral": [
+            "Take a few deep breaths to relax.",
+            "Practice mindfulness for a few minutes.",
+            "Engage in light exercise for a mood boost.",
+            "Explore a new hobby or activity to create excitement."
+        ]
     }
     return recommendations.get(detected_emotion, ["No recommendations available."])
 

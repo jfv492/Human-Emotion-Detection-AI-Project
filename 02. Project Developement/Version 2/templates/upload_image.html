@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload Image</title>
+    <link rel="stylesheet" href="static/css/image.css">
 </head>
 <body>
-    <h1>Upload Image</h1>
-
-    <!-- Your existing form for image upload and prediction -->
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-    </form>
-
-    <h2>Prediction</h2>
-    {% if detected_emotion %}
-        <p>{{ detected_emotion }}</p>
-    {% else %}
-        <p>No emotion detected</p>
-    {% endif %}
-
-    <!-- Recommendations section -->
-    <h2>Recommendations</h2>
-    {% if recommendations %}
+    <div class="title">
+        <h1>Welcome to EmoDetect</h1>
         <ul>
-            {% for recommendation in recommendations %}
-                <li>{{ recommendation }}</li>
-            {% endfor %}
+            <li>Please select an image,</li>
+            <li>then click upload to get your emotion predicted</li>
+            <li>and recommendations</li>
         </ul>
-    {% else %}
-        <p>No recommendations available</p>
-    {% endif %}
+    </div>
+
+    <div class="card">
+        <h1>Upload Image</h1>
+
+        <!-- Your existing form for image upload -->
+        <form id="imageForm" enctype="multipart/form-data">
+            <label for="fileInput">Choose file:</label>
+            <input type="file" id="fileInput" name="file">
+            <input type="submit" value="Upload">
+        </form>
+
+        <h2>Prediction</h2>
+        <p id="detectedEmotion"></p>
+
+        <!-- Recommendations section -->
+        <div class="recommendations">
+            <h2>Recommendations</h2>
+            <ul id="recommendationsList">
+                <!-- Recommendations will be populated here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="static/js/image.js"></script>
 </body>
 </html>

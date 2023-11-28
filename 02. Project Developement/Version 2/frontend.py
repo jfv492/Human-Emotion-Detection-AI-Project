@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image as keras_image
 import numpy as np
@@ -44,15 +44,15 @@ def home():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_image():
-    detected_emotion = None
-    
     if request.method == 'POST':
+        detected_emotion = None
+
         if 'file' not in request.files:
-            return "No file part"
+            return jsonify({"error": "No file part"}), 400
         
         file = request.files['file']
         if file.filename == '':
-            return "No selected file"
+            return jsonify({"error": "No selected file"}), 400
         
         # Save the uploaded file
         file_path = "uploads/" + file.filename
@@ -68,98 +68,24 @@ def upload_image():
             
             # Extract emotion from the model's prediction
             detected_emotion = extract_emotion(prediction)
+            
+            # Get recommendations based on detected emotion
+            recommendations = get_recommendations(detected_emotion)
+            
+            return jsonify({
+                "detected_emotion": detected_emotion,
+                "recommendations": recommendations
+            })
         except Exception as e:
             print("Error analyzing image:", str(e))
             detected_emotion = "Error"
-    
-    return render_template('upload_image.html', detected_emotion=detected_emotion)
+            recommendations = []
 
-@app.route('/recommendation', methods=['POST'])
-def recommendation():
-    data = request.json
-    detected_emotion = data.get('emotion')
-    
-    if detected_emotion:
-        recommendations = get_recommendations(detected_emotion)
-        response = {
-            "emotion": detected_emotion,
-            "recommendations": recommendations
-        }
-        return jsonify(response), 200
-    else:
-        return jsonify({"error": "Emotion not provided."}), 400
+    return render_template('upload_image.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-
-##########################################################################
-
-# from flask import Flask, request, render_template
-# from tensorflow.keras.models import load_model
-# from tensorflow.keras.preprocessing import image
-# import numpy as np
-# import cv2
-
-# app = Flask(__name__)
-
-# # Load your custom-trained model
-# custom_model_path = "/Users/jasmeetsingh/Desktop/ENSE 405/Human-Emotion-Detection-AI-Project/02. Project Developement/Version 2/facialemotionmodel.h5"
-# custom_model = load_model(custom_model_path)
-
-# # Set the target size based on your model's input size
-# target_size = (224, 224)  # Replace with your model's input size
-
-# # Define the function to extract the detected emotion from model predictions
-# def extract_emotion(prediction):
-#     emotion_labels = ['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral']
-#     predicted_index = np.argmax(prediction)  # Get the index with the highest probability
-#     detected_emotion = emotion_labels[predicted_index]  # Get the corresponding emotion label
-    
-#     return detected_emotion
-
-# @app.route('/')
-# def home():
-#     return render_template('index.html')
-
-# @app.route('/upload', methods=['GET', 'POST'])
-# def upload_image():
-#     detected_emotion = None
-    
-#     if request.method == 'POST':
-#         if 'file' not in request.files:
-#             return "No file part"
-        
-#         file = request.files['file']
-#         if file.filename == '':
-#             return "No selected file"
-        
-#         # Save the uploaded file
-#         file_path = "uploads/" + file.filename  # Define the path to save the uploaded file
-#         file.save(file_path)
-        
-#         # Perform emotion analysis using your custom model on the uploaded image
-#         try:
-#             # Read the uploaded image
-#             img = image.load_img(file_path, target_size=target_size)
-#             img_array = image.img_to_array(img)
-#             img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
-#             processed_img = img_array / 255.0  # Normalize pixel values (if required)
-            
-#             # Perform prediction using your custom model
-#             prediction = custom_model.predict(processed_img)
-            
-#             # Extract emotion from the model's prediction
-#             detected_emotion = extract_emotion(prediction)  # Get the detected emotion label
-#         except Exception as e:
-#             print("Error analyzing image:", str(e))
-#             detected_emotion = "Error"
-    
-#     return render_template('upload_image.html', detected_emotion=detected_emotion)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
 
 ###################
 # from flask import Flask, request, render_template

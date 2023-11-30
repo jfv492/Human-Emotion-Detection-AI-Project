@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
-    background-image: url('/static/images/bg4.jpg'); /* Update the path to reference the image */
+    background-image: url('/static/images/bg3.jpg'); /* Update the path to reference the image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

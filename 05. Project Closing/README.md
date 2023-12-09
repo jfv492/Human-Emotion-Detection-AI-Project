@@ -17,7 +17,7 @@ https://youtu.be/_NRItZH4pvY
 - Please ensure you have a conda environment installed with the approprate libraies
   - DeepFace
   - TensorFlow
-- You can simpl run the requirements.txt in Emodetect folder to install all the libraries at once b using the command : pip install -r requirements.txt
+- You can simply run the requirements.txt in Emodetect folder to install all the libraries at once by using the command : pip install -r requirements.txt
 
 - Activate the conda environment 
 - Then run the frontend.py file to access the emodetect website on our local machine   

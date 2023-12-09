@@ -15,4 +15,7 @@ The ongoing Human Emotion Detection project aims to increase emotional awareness
 ## Project Vlogs
 - [Vlog 1 - Project Planning and Initialization](https://youtu.be/0VB-oImWLHo)
 
+## Project Commercial
+- https://youtu.be/_NRItZH4pvY
+
 ## Licence

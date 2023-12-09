@@ -8,6 +8,7 @@ https://youtu.be/_NRItZH4pvY
 - Concepts Document
 - Project Status Report
 - Project Final Presentation Slides
+- Project Report (Submitted on UR Courses)
 
 ## How to run the application
 - Clone this repository on to your local machine

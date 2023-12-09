@@ -20,3 +20,10 @@ https://youtu.be/_NRItZH4pvY
   - Flask
 - Activate the conda environment 
 - Then run the frontend.py file to access the emodetect website on our local machine   
+
+## How to use the application
+- On the landing page click on 'Scan Emotion' Button
+- Click on the "Upload Image" button on the emotion detection page
+- Select an image from your device's gallery or upload one.
+- Click the 'Upload' Button
+- You will have the results shown after clicking the button

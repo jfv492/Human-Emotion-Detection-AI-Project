@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="static/css/image.css">
+</head>
+<body>
+    <div class="title">
+        <h1>Welcome to EmoDetect</h1>
+    </div>
+
+    <div class="card">
+        <div class="split-layout">
+            <div class="left-column">
+                <h1> 💡Instructions</h1>
+                <ul>
+                    <li>Please select an image,</li>
+                    <li>Then click upload to get your emotion predicted</li>
+                    <li>and recommendations</li>
+                </ul>
+                <h1> 💡Terms and Conditions</h1>
+                <ul>
+                    <li>By uploading an image, you agree that you have the necessary rights to share the image and grant us permission to analyze the image for emotion detection purposes. We do not claim ownership of the uploaded images. </li>
+                </ul>
+            </div>
+            <div class="right-column">
+                <h1>Upload Image</h1>
+                <!-- Your existing form for image upload -->
+                <form id="imageForm" enctype="multipart/form-data">
+                    <label for="fileInput">Choose file:</label>
+                    <input type="file" id="fileInput" name="file">
+                    <input type="submit" value="Upload">
+                </form>
+
+                <h2>Prediction</h2>
+                <p id="detectedEmotion"></p>
+
+                <!-- Recommendations section -->
+                <div class="recommendations">
+                    <h2>Recommendations</h2>
+                    <ul id="recommendationsList">
+                        <!-- Recommendations will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/image.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Your Name">
+    <title>Detect Emotion</title>
+    <style>
+        /* Add your custom CSS styles here */
+        #video-box {
+            border: 2px solid #ccc;
+            width: 640px;
+            height: 480px;
+            margin-bottom: 20px;
+        }
+        #result {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="video-box"></div>
+<button onclick="startDetection()">Detect Emotion</button>
+<div id="result"></div>
+
+<script>
+    // Function to start camera and detect emotion
+    async function startDetection() {
+        const video = document.createElement('video');
+        video.id = 'video';
+        document.getElementById('video-box').appendChild(video);
+
+        // Get user media
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        await video.play();
+
+        // Capture frame from video stream and send to backend for emotion detection
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        setInterval(async () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imgData = canvas.toDataURL('image/jpeg');
+
+            // Send captured image data to Flask backend for emotion detection
+            const response = await fetch('/videoFeed', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: imgData })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = `Detected Emotion: ${result.emotion}`;
+        }, 1000); // Change interval as needed
+    }
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Your Name">
+    <title>Upload Image for Analysis</title>
+</head>
+<body>
+
+<form action="/analyzeImage" method="post" enctype="multipart/form-data">
+    <input type="file" name="imageFile" accept="image/*">
+    <button type="submit">Analyze Image</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    // JavaScript code for handling the form submission (if needed)
+</script>
+
+</body>
+</html>

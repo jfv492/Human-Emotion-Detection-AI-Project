@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('/static/images/bg4.jpg'); /* Update the path to reference the image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.card {
+    width: 800px; /* Adjust width for the split layout */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.split-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-column {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    text-align: left; /* Center align text */
+    font-size: 20px; /* Adjust font size */
+    color: #333; /* Adjust text color */
+}
+
+.right-column {
+    flex: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px; /* Adjust font size */
+}
+
+input[type="file"],
+input[type="submit"] {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    font-size: 14px; /* Adjust font size */
+}
+
+input[type="file"] {
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type="submit"] {
+    background-color: #DD4A48;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #BF4341;
+}
+
+.recommendations {
+    text-align: center;
+    font-size: 14px; /* Adjust font size */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}

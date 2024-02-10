@@ -19,3 +19,4 @@ The ongoing Human Emotion Detection project aims to increase emotional awareness
 - https://youtu.be/_NRItZH4pvY
 
 ## Licence
+[View the licence here](https://github.com/jfv492/Human-Emotion-Detection-AI-Project/blob/main/LICENSE)
